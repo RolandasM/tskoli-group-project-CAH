@@ -1,0 +1,33 @@
+[
+    {
+        "blackCards":
+            [
+                {
+                    "blackCardID": "001",
+                    "firstPartOfCard": "some text then this ____",
+                    "secondPartOfCard": "Continuation of text and an end or another space like this _____",
+                    "thirdPartOfCard": "This is a possible end to the card"
+                },
+                {
+                    "blackCardID": "002",
+                    "firstPartOfCard": "When i was ecstatic at W.I.L.D., ____",
+                    "secondPartOfCard": "looked like _____",
+                    "thirdPartOfCard": "."
+                }
+
+            ],
+        "whiteCards":
+            [
+                {
+                    "whiteCardID": "001",
+                    "cheekyText": "You flipping banana"
+                },
+                {
+                    "whiteCardID": "002",
+                    "cheekyText": "Son of a squirrel"
+                }
+
+            ]
+
+    }
+]
