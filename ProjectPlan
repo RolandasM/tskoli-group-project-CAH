@@ -3,10 +3,25 @@ Main goals:
 Visual layout of the game
 
 Database for cards
+(
+  jon-s-o:
+    Was planning on creating the database(this is easy)
+    From there i want to make sure i can work with the database through python(and possibly other ways as well)
+    For example: being able to access database of CARDS and use them as an array in python for functions
+    such as "DRAW CARD".
+    
+    TBC
+)
 
 Game Logic
 
+
 Netcode
+(
+  jon-s-o:
+    May look into this as well, to be determined.
+)
+
 
 Extra Goals:
 User Registration
