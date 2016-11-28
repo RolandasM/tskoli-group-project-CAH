@@ -16,3 +16,6 @@ class player:
         if len(self.playerHand) < self.handSize:
             self.playerHand.append(self.cardPool.pop(random.randrange(0, len(self.cardpool))))
             self.fillHand()
+
+    def fetchCards(self):#fetch the pool of cards this player will use
+        todo = True

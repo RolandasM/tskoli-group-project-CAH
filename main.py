@@ -3,7 +3,13 @@ import player
 import card
 import random
 
-gameState = "" #identifies current game state:
+#
+#
+import pypyodbc
+#
+#
+
+gameState = "menu" #identifies current game state:
 #menu = user is in the starting menu
 #lobby = user is in the game lobby, ready to enter a game
 #newroom = user wants to create a new game room
@@ -39,19 +45,21 @@ while gameState != "quit":
     #drawBase(gameState) #tells the screen drawer to draw a background appropriate for current game state
     #function wil go live when drawing system is ready
 
-    # checks to see if certain values are present in array, then calls the appropriate functions with appropriate values
-    if "question" in drawArr:#calls draw function to draw current question on screen
-        todo = True
-        #drawBlack(blackCard)
-    if "qnew" in drawArr:
-        todo = True
-        #if newBlack(blackCard):
-        #   arrayDropVar(drawArr, "qnew", 0)
-    if len(whiteField) > 0:
-        for x in range(0, len(whiteField)):
+    if gameState == "qna" or gameState == "choice":
+        # checks to see if certain values are present in array, then calls the appropriate functions with appropriate values
+        if "question" in drawArr:#calls draw function to draw current question on screen
             todo = True
-            #drawWhite(whiteField[x], x)
-            #sends draw call for a white card as well as the index of the card (for positioning)
+            #drawBlack(blackCard)
+        if "qnew" in drawArr:
+            todo = True
+            #if newBlack(blackCard):
+            #   arrayDropVar(drawArr, "qnew", 0)
+        if len(whiteField) > 0:
+            for x in range(0, len(whiteField)):
+                todo = True
+                #drawWhite(whiteField[x], x)
+                #sends draw call for a white card as well as the index of the card (for positioning)
+        #drawHand(players[userId].playerHand)#draws the player's hand
 
 
 
@@ -68,8 +76,7 @@ def error(errorCode):#takes error codes and displays appropriate message
 def arrayDropVar(targetArr, dropVar, pos):#purge all instances of specific value from array, always call with pos at 0
     if targetArr[pos] == dropVar:
         del targetArr[pos]
-        arrayDropVar(targetArr, dropVar, pos)
     else:
-        arrayDropVar(targetArr, dropVar, pos+1)
-    if pos != len(targetArr):
-        arrayDropVar(targetArr, dropVar, pos+1)
+        pos = pos + 1
+    if pos <= len(targetArr):
+        arrayDropVar(targetArr, dropVar, pos)
