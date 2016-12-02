@@ -3,10 +3,11 @@ import player
 import card
 import random
 
+
 #
 #
 import pypyodbc
-#
+#https://code.google.com/archive/p/pypyodbc/wikis/A_HelloWorld_sample_to_access_mssql_with_python.wiki
 #
 
 gameState = "menu" #identifies current game state:
@@ -80,3 +81,10 @@ def arrayDropVar(targetArr, dropVar, pos):#purge all instances of specific value
         pos = pos + 1
     if pos <= len(targetArr):
         arrayDropVar(targetArr, dropVar, pos)
+def dbConnect(queries):
+    dbConn = pypyodbc.connect('SETJA DATABASE HÉRNA')
+    cur = dbConn.cursor()
+    for x in len(queries):
+        cur.execute(queries[x])
+    cur.close()
+    dbConn.close()
