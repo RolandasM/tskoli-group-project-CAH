@@ -10,9 +10,9 @@ def text_to_screen(screen, text, x, y, size = 49,
         text = font.render(text, True, color)
         screen.blit(text, (x, y))
 
-    except Exception, e:
-        print 'Font Error, saw it coming'
-        raise e
+    except(Exception, e):
+        print('Font Error, saw it coming')
+        raise(e)
 
 
 def drawText(surface, text, color, rect, font, aa=False, bkg=None):

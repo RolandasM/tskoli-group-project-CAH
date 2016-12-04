@@ -24,9 +24,6 @@ pp = pprint.PrettyPrinter(indent=4, depth=6)
 
 
 
-#Get randomm number
-
-
 for row in dataCAH:
     #print(row)
     countCards = +1
@@ -41,9 +38,10 @@ bigBlackDeck = []
 tinyWhiteDeck = []
 
 sortDeckCounter = 0
-
+cardc = 0
 
 while(sortDeckCounter != 2953):
+
 
     #GET THE CARD TYPE
     cardType = dataCAH[sortDeckCounter]['cardType']
@@ -56,8 +54,10 @@ while(sortDeckCounter != 2953):
         bigBlackDeck.append(dataCAH[sortDeckCounter]['text'])
         #print("blackcard: " + bigBlackDeck)
         sortDeckCounter = sortDeckCounter + 1
+        cardc = cardc +1
 
-
+print("THIS IS HOW MANY BLACK CARDS THERE ARE IN THE bigBlackDeck: ")
+print(cardc)
 
 
 
@@ -66,31 +66,37 @@ while(sortDeckCounter != 2953):
 userTinyWhiteDeck = []
 userCardsCount = 0
 
-flaccidCards = []
+flaccidWhiteCards = []
 
-
+#DRAW CARDS FOR USERS
 while(userCardsCount < 10):
-    getRandom = random.randrange(0, 2333)
-    if getRandom not in flaccidCards:
-        userTinyWhiteDeck.append(tinyWhiteDeck[getRandom])
+    getRandomWhiteCards = random.randrange(0, 2333)
+    if getRandomWhiteCards not in flaccidWhiteCards:
+        userTinyWhiteDeck.append(tinyWhiteDeck[getRandomWhiteCards])
         userCardsCount = userCardsCount + 1
-        flaccidCards.append(getRandom)
+        flaccidWhiteCards.append(getRandomWhiteCards)
     else:
         #print("OH SHIT IS A DITTO")
         continue
 
 
+#DRAW BLACK CARDS
+blackCardCounter = 0
+displayBigBlackCard = []
+flaccidBlackCards = []
 
-#for card in userTinyWhiteDeck:
+while(blackCardCounter < 1):
+    getRandomBlackCard = random.randrange(0, 619)
+    if getRandomBlackCard not in flaccidBlackCards:
+        displayBigBlackCard.append(bigBlackDeck[getRandomBlackCard])
+        blackCardCounter = blackCardCounter + 1
+        flaccidBlackCards.append(getRandomBlackCard)
+    else:
+        #print("-----------------------------WHAT IS HAPPENING----------------------------------")
+        continue
 
-
-
-
-
-
-
-
-
+print(displayBigBlackCard[0])
+print(userTinyWhiteDeck[0])
 
 
 
