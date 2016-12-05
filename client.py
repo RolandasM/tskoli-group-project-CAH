@@ -1,12 +1,18 @@
-import random, json as j, urllib.request as u, pprint, pymysql as p
-#
-#
-#
-#
-#######
-c = p.connect(host='tsuts.tskoli.is', port=3306, user='2202903449', passwd='mypassword', db='2202903449_cah')
-cur = c.cursor()
+import MySQLdb as p
 
+
+"""
+def onlyNum(arr, pos):
+    if str.isdigit(arr[pos]):
+        pos += 1
+    else:
+        del(arr[pos])
+    if len(arr) > pos:
+        onlyNum(arr,pos)
+"""
+
+c = p.connect(host='tsuts.tskoli.is',user='2202903449', passwd='mypassword', db='2202903449_cah')
+cur = c.cursor()
 #Are weconnected?
 clientFound = False
 #clientconnected counter
@@ -16,76 +22,88 @@ while(clientFound != True):
 
     #cur.execute("USE 2202903449_cah")
     #cur.execute("SHOW TABLES")
+    id = 1
+    clientcounter = int(1)
 
-    cur.execute("select id from clientsconnected")
+    WHATUSERISTHIS = 0
+    WHATACTIVEISTHIS = 2
+    while(clientcounter < 5 and clientFound != True):
 
-    userID = str(cur.fetchall())
-    #print(userID)
-    #print(userID[2])
+        cur.execute("select id from clientsconnected")
 
-    cur.execute("select active from clientsconnected")
+        userID = cur.fetchall()
+        uid = userID[WHATUSERISTHIS]
+        cuID = int(uid[0])
 
-    active = str(cur.fetchall())
+        print(type(userID))
+        print(userID)
+        print("^userid")
 
-    if(userID[2] == '1' and active[2] == '0' ):
-        print("user is not active")
+        #There once was a dream called rome
+        #onlyNum(userID,0)
 
-        activate = 1
-        id = (checkclient + 1)
-        print(type(id))
-        print(type(activate))
-        #cur.execute('insert into white_cards (text, card_set_id) values (%s, %s)', (text, card_set_id))
-        #c.commit()
-        cur.execute('update clientsconnected set active = 1 where id = 1')
-        c.commit()
-        print("Activating client 1")
 
-        whatuser = str(checkclient +1)
-        print("User " + whatuser + " has been activated")
 
+        print(userID)
         cur.execute("select active from clientsconnected")
         active = str(cur.fetchall())
-        clientFound = True
+        print(active)
+        aa = active[WHATACTIVEISTHIS]# +6
+        print(aa)
+        print(type(cuID))
+        print(cuID)
+        print(type(clientcounter))
+        print(clientcounter)
 
-    else:
-        whatuser = str(checkclient +1)
-        print("User " + whatuser + " has already been activated")
-        nextuser = str(checkclient + 2)
-        print("trying user:  " + nextuser)
 
-        checkclient = checkclient +1
-        clientFound = True
+
+        if(cuID == clientcounter and aa == '0' ):
+
+            print("user is not active")
+            print(type(id))
+            print(cuID)
+            print(type(cuID))
+            #cur.execute('insert into white_cards (text, card_set_id) values (%s, %s)', (text, card_set_id))
+            #c.commit()
+            printid = str(id)
+            printclientcounter = str(clientcounter)
+            print("THIS IS ID: " + printid)
+            print("THIS IS CLIENTCOUNTER: " + printclientcounter)
+            ACTIVATECLIENT = 1
+            print(ACTIVATECLIENT)
+            print(type(ACTIVATECLIENT))
+            print("ACT ^")
+            print(id)
+            print(type(id))
+            print("ID ^")
+            cur.execute('update clientsconnected set active = %s where id = %s',(ACTIVATECLIENT,id))
+            #cur.execute('update clientsconnected set active = 1 where id = 1')
+            c.commit()
+            #cursor.execute ("UPDATE tblTableName SET Year=%s, Month=%s, Day=%s, Hour=%s, Minute=%s WHERE Server='%s' " % (Year, Month, Day, Hour, Minute, ServerID))
+            c.commit()
+            print("Activating client 1")
+
+            whatuser = str(checkclient +1)
+            print("User " + whatuser + " has been activated")
+
+            cur.execute("select active from clientsconnected")
+            active = str(cur.fetchall())
+            clientFound = True
+
+        else:
+            WHATACTIVEISTHIS = WHATACTIVEISTHIS + 6
+            id = id + 1
+            clientcounter = clientcounter +1
+            WHATUSERISTHIS = WHATUSERISTHIS + 1
+            whatuser = str(checkclient +1)
+            print("User " + whatuser + " has already been activated")
+            nextuser = str(checkclient + 2)
+            print("trying user:  " + nextuser)
+
+            checkclient = checkclient +1
+            #clientFound = True
+
 
 
 result = str(active[2])
 print("1 = active; 0 = inactive. And it is : " + result)
-
-    #with open('http://tsuts.tskoli.is/2t/2202903449/CAH_JSON/userOne.json', 'w') as f:
-        #j.dump(data,f,ensure_ascii=False)
-
-urlCAHdb = "http://tsuts.tskoli.is/2t/2202903449/CAH_JSON/anotherCAHjsonDB.json"
-
-reponseCAH = u.urlopen(urlCAHdb).read()
-
-dataCAH = j.loads(reponseCAH.decode('utf-8'))
-
-
-
-## trying pretty print ##
-
-pp = pprint.PrettyPrinter(indent=4, depth=6)
-
-
-
-"""
-import zmq, ipaddress as ip
-context = zmq.Context()
-socket = context.socket(zmq.REQ)
-socket.connect("tcp://192.168.1.81:50001")
-
-for i in range(100):
-    msg = "msg %s" % i
-    socket.send_string(msg)
-    print("Sending", msg)
-    msg_in = socket.recv()
-"""
