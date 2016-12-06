@@ -1,0 +1,31 @@
+22 Nov 2016
+Set up github, tested some git functionality, created basic to-do list for the project
+
+23 Nov 2016 
+Decided who was doing what, i took the visual front end.
+Spent the day learning to use git and made some basic layouts for the game.
+
+24 Nov 2016
+Some more layout plans, reseach into pygame rect collision for buttons.
+
+28 Nov 2016
+researching old projects, attempting to create a basic black square that on click gets a new random string
+
+29 Nov 2016 
+researching how to keep text inside rect, found TextWrap, spent the day making it work
+Further planing on layout and functionality
+
+2 Dec 2016 
+Had basic clicks working, after some further tweaking of the TextWrap got some margin so the text
+wouldnt be touching the edges of the rect.
+
+4 Dec 2016 
+Added user rectangles/trying to figure out how to make clickable rects from the card list for player hands
+after trial and error got clicks to return the string linked with the card
+
+5 Dec 2016 
+Removed redundant code, added comments, added answer output, for both 1 and 2 answer questions, clickable
+to output winners name. 
+
+6 Dec 2016 
+Sweating bullets hoping not to fail because the project is not finished
