@@ -1,0 +1,63 @@
+{
+	"Final_report":
+		{
+			"GitUse": "Branch from master -> Download and use data then upload to branch -> merge branch with master",
+
+			"Authors":
+				[
+					{
+						"Name": "Rolandas Miniekas",
+						"Role": "Front end stuff, pygame - display things on screen",
+						"WorkRatio": "Lame question: 33,33%"
+					},
+					{
+						"Name": "Jón Sveinbjörn Óskarsson,"
+						"Role:" "Database, json/mysql - server/client - read/write/update sql commands in python",
+						"WorkRatio": "Lame question: 33,33%"
+					},
+					{	
+						"Name": "Jón Björgvin Sigurðsson",
+						"Role": "Game logic - +++",
+						"WorkRatio": "Lame question: 33,33%"
+					}
+				],
+
+
+			"ProjectDescription": "Create a Cards against Humanity game through python and mysql database (originally socket-threading, abandoned)",
+
+			"NextStepsUnfinishedAndImprovments":
+				{
+					"NextUp": "Next steps would be improving a server/client environment.",
+					"UnfinishedParts":
+						{	
+							"part1": "Now. There are a few parts. setting up some tables. Code that uses data from",
+							"part2": "The code is there. just need more time to actually use it everywhere."
+						},
+					"Improvements": "Mostly organizing our code. That's what i believe anyway."
+				},
+
+			"Final Words":
+				[
+					{
+						"howItGo": 
+							{
+								"part1": "It Could have gone better. Had a lot of problems trying to get socket/threading to work outside local network",
+								"part2": "Duuuuuuuuuh. Something here?"
+							}
+					}
+				]
+		}
+}
+		
+
+
+
+
+4. Lokaskýrsla, með notkun wiki á GitHub.
+a. Höfundar.
+b. Verkefnalýsing.
+c. Verkaskipting og hutföll vinnuframlags hvers nemanda.
+d. Greiningar, hannanir, lýsingar og skýringar á afurð ásamt slóð á
+myndband.
+e. Hver væru næstu skref, ókláruð virkni, endurbætur osfrv.
+f. Samantekt. Hvernig tókst til, með hvaða hætti var samvinnan.
